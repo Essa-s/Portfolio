@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block home %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'home:home'%}">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        {% for service in services %}
+        <a class="nav-item nav-link" href="{% url 'home:single-service' service.slug %}">{{service}} <span class="sr-only"></span></a>
+        {% endfor %}
+
+        
+      </div>
+    </div>
+  </nav>
+<section class="projects section-padding" id="section_1">
+    <div class="container">
+        <div class="row">
+
+
+            
+            <div class="clearfix"></div>
+            {% for project in projects %}
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="projects-thumb">
+                    <div class="projects-info">
+                        
+                        {% comment %} <small class="projects-tag"></small> {% endcomment %}
+                        
+                        <h3 class="projects-title">{{project.title}}</h3>
+                        
+                    </div>
+
+                    <a href="{{project.main_image.url}}" class="popup-image">
+                        <img src="{{project.main_image.url}}" class="projects-image img-fluid" alt="">
+                    </a>
+                    <a href="{% url 'home:project-details' project.slug %}"  class="custom-btn custom-border-btn btn mt-3">Discover More</a>
+
+                </div>
+            </div>
+            
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock home %}

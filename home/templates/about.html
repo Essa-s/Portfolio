@@ -1,0 +1,71 @@
+
+{% load static %}
+{% for x in profile %}
+    <section class="featured section-padding" id="section_2">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-12">
+                    <div class="profile-thumb">
+                        <div class="profile-title">
+                            <h4 class="mb-0">Information</h4>
+                        </div>
+
+                        <div class="profile-body">
+                            <p>
+                                <span class="profile-small-title">Name</span> 
+                                <span>{{x.name}}</span>
+                            </p>
+
+                            <p>
+                                <span class="profile-small-title">Birthday</span> 
+                                <span>{{x.birthday}}</span>
+                            </p>
+
+                            <p>
+                                <span class="profile-small-title">Phone</span> 
+                                 <span><a href="tel: +{{x.phone}}">+{{x.phone}}</a></span>
+                            </p>
+
+                            <p>
+                                <span class="profile-small-title">Email</span> 
+                                <span><a href="mailto:hello@josh.design">{{x.email}}</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 col-12 mt-5 mt-lg-0">
+                    <div class="about-thumb">
+                        <div class="row">
+                            <div class="col-lg-6 col-6 featured-border-bottom py-2">
+                                <strong class="featured-numbers">+{{x.block1_number}}</strong>
+
+                                <p class="featured-text">{{x.block1_detail}}</p>
+                            </div>
+
+                            <div class="col-lg-6 col-6 featured-border-start featured-border-bottom ps-5 py-2">
+                                <strong class="featured-numbers">{{x.block2_number}}</strong>
+
+                                <p class="featured-text">{{x.block2_detail}}</p>
+                            </div>
+
+                            <div class="col-lg-6 col-6 pt-4">
+                                <strong class="featured-numbers">{{x.block3_number}}</strong>
+
+                                <p class="featured-text">{{x.block3_detail}}</p>
+                            </div>
+
+                            <div class="col-lg-6 col-6 featured-border-start ps-5 pt-4">
+                                <strong class="featured-numbers">+{{x.block4_number}}</strong>
+
+                                <p class="featured-text">{{x.block4_detail}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    {% endfor %}
