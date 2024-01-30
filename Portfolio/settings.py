@@ -83,12 +83,14 @@ WSGI_APPLICATION = 'Portfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE'  : 'django.db.backends.mysql', # <-- UPDATED line
-        'NAME'    :  env('DATABASE_NAME'),               # <-- UPDATED line
-        'USER'    : env('DATABASE_USER'),                     # <-- UPDATED line
-        'PASSWORD': env('DATABASE_PASS'),              # <-- UPDATED line
-        'HOST'    : 'localhost',                # <-- UPDATED line
-        'PORT'    : '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'sqlite3.db',   
+        # 'ENGINE'  : 'django.db.backends.mysql', # <-- UPDATED line
+        # 'NAME'    :  env('DATABASE_NAME'),               # <-- UPDATED line
+        # 'USER'    : env('DATABASE_USER'),                     # <-- UPDATED line
+        # 'PASSWORD': env('DATABASE_PASS'),              # <-- UPDATED line
+        # 'HOST'    : 'localhost',                # <-- UPDATED line
+        # 'PORT'    : '3306',
     }
 }
 
