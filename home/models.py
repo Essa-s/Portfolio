@@ -23,6 +23,11 @@ def profile_files(instance, filename):
     filename = "%s.%s" % (instance.id, ext)
     return os.path.join("profile", filename)
 
+def edu_files(instance, filename):
+    ext = filename.split(".")[-1]
+    filename = "%s.%s" % (instance.id, ext)
+    return os.path.join("edu", filename)
+
 
 class Profile(models.Model):
     name = models.CharField(max_length=50)
@@ -113,3 +118,45 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+
+class Experience(models.Model):
+    job = models.CharField(max_length=50)
+    start_date = models.DateField(auto_now=False, auto_now_add=False)
+    end_date = models.DateField(auto_now=False, auto_now_add=False,null = True, blank= True)
+    present = models.BooleanField()
+    details = models.TextField()
+
+    def __str__(self):
+        return self.job
+
+
+class Education(models.Model):
+    school = models.CharField(max_length=50)
+    major = models.CharField(max_length=50)
+    degree = models.DecimalField(max_digits=4, decimal_places=2, null = True, blank= True)
+    start_date = models.DateField(auto_now=False, auto_now_add=False)
+    end_date = models.DateField(auto_now=False, auto_now_add=False,null = True, blank= True)
+    present = models.BooleanField()
+    details = models.TextField()
+    main_image = models.ImageField(upload_to=project_files, null = True, blank= True)
+
+    def __str__(self):
+        return self.school
+
+class Courses(models.Model):
+    name = models.CharField(max_length=50)
+    major = models.CharField(max_length=50)
+    start_date = models.DateField(auto_now=False, auto_now_add=False)
+    end_date = models.DateField(auto_now=False, auto_now_add=False,null = True, blank= True)
+    present = models.BooleanField()
+    details = models.TextField()
+    main_image = models.ImageField(upload_to=project_files, null = True, blank= True)
+    def __str__(self):
+        return self.name
+    
+class Skills(models.Model):
+    skill = models.CharField(max_length=20)
+    rate = models.IntegerField()
+    
+    def __str__(self):
+        return self.skill
