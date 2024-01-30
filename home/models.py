@@ -29,6 +29,11 @@ class Profile(models.Model):
     job = models.CharField(max_length=50)
     greeting = models.CharField(max_length=50)
     status = models.CharField(max_length=100)
+    fb = models.URLField(max_length=200, blank=True, null=True)
+    insta = models.URLField(max_length=200, blank=True, null=True)
+    linkedin = models.URLField(max_length=200, blank=True, null=True)
+    github = models.URLField(max_length=200, blank=True, null=True)
+
     avatar = models.ImageField(
         upload_to=profile_files, height_field=None, width_field=None, max_length=None
     )
@@ -83,6 +88,8 @@ class Project(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField(max_length=1000)
     link = models.URLField(max_length=200)
+    client = models.CharField(max_length=50)
+    date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
     main_image = models.ImageField(upload_to=project_files)
     optional_image1 = models.ImageField(
         upload_to=project_files,
@@ -105,3 +112,4 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+

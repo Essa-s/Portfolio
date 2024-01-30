@@ -3,7 +3,7 @@ from django.views.generic import ListView, UpdateView
 from .models import Profile, Services, Project
 from django.shortcuts import get_object_or_404
 def Home(request):
-    profile = Profile.objects.all()
+    profile = Profile.objects.all().first()
     services = Services.objects.all()
 
 

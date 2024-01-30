@@ -37,7 +37,7 @@
                 {% endif %}
               </div>
               <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="10000">
+                <div class="carousel-item active" data-bs-interval="2000">
                   <img src="{{project.main_image.url}}" class="d-block w-100" alt="...">
 
                 </div>
@@ -69,15 +69,16 @@
               <h3>Project information</h3>
               <ul>
                 <li><strong>Category</strong>: {{project.category}}</li>
-                <li><strong>Client</strong>: ASU Company</li>
-                <li><strong>Project date</strong>: 01 March, 2020</li>
-                <li><strong>Project URL</strong>: <a href="{{project.link}}">github link</a></li>
+                <li><strong>Client</strong>: {{project.client}}</li>
+                <li><strong>Project date</strong>: {{project.date}}</li>
+                <li><strong>Source Code</strong>: <a href="{{project.link}}">github link</a></li>
               </ul>
             </div>
             <div class="portfolio-description">
               <h2>Details</h2>
               <p>
-                {{project.description}}
+
+                {{project.description|linebreaks }}
               </p>
             </div>
           </div>

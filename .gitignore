@@ -1,3 +1,4 @@
-.idea/
-.vscode/
-index.html
+/.vscode/
+etc/
+*__pycahce__
+.env
