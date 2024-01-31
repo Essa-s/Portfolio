@@ -1,5 +1,6 @@
 
 {% load static %}
+
 <section class="featured section-padding" id="section_3">
     <div class="container">
         <div class="col-lg-10 col-12 mx-auto">
@@ -14,11 +15,11 @@
           {% for edu  in education reversed %}
           <div class="profile-title">
             <h4>{{edu.major}}</h4>
-            <h5>{{edu.start_date|date:"Y"}} - 
+            <p>{{edu.start_date|date:"Y"}} - 
             {% if edu.present %}
                 Present
             {% else %}
-                {{edu.end_date|date:"Y"}}</h5>
+                {{edu.end_date|date:"Y"}}</p>
                 <p><em>Degree: {{edu.degree}}</em></p>
             {% endif %}   
             <p><em>{{edu.school}}</em></p>
@@ -26,23 +27,39 @@
           </div>
           {% endfor %}
         </div>
+    
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
           <h3 class="profile-small-title">Experience</h3>
           
-          {% for exp in experience %}
+          {% for exp in experience reversed%}
           <div class="profile-title">
-            <h4>{{exp.name}}</h4>
-            <h5>{{exp.start_date|date:"Y"}} - 
-                {% if edu.present %}
+            <h4>{{exp.job}}</h4>
+            <h5>{{exp.company}}</h5>
+            <p>{{exp.start_date|date:"Y"}} - 
+                {% if exp.present %}
                     Present
                 {% else %}
-                    {{exp.end_date|date:"Y"}}{% endif %}</h5>
+                    {{exp.end_date|date:"Y"}}{% endif %}</p>
                     <p>{{exp.details|linebreaks}}</p>
+                </div>
           {% endfor %}
 
-        </div>
+        
       </div>
-
+      <div class="row">
+        <div class="col-lg-6" data-aos="fade-up">
+            <h3 class="profile-small-title">Skills</h3>
+            <ul>
+                {% for skill in skills %}
+                    <li>{{ skill }} 
+                    {% for _ in range(5) %}
+                        <i class="bi bi-star-fill"></i>
+                    {% endfor %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
     </div>
   </section><!-- End Resume Section -->
     {% comment %} {% endfor %} {% endcomment %}
