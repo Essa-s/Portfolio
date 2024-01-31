@@ -125,6 +125,7 @@ class Experience(models.Model):
     end_date = models.DateField(auto_now=False, auto_now_add=False,null = True, blank= True)
     present = models.BooleanField()
     details = models.TextField()
+    company = models.CharField(max_length=50)
 
     def __str__(self):
         return self.job
@@ -146,6 +147,7 @@ class Education(models.Model):
 class Courses(models.Model):
     name = models.CharField(max_length=50)
     major = models.CharField(max_length=50)
+    company = models.CharField(max_length=50)
     start_date = models.DateField(auto_now=False, auto_now_add=False)
     end_date = models.DateField(auto_now=False, auto_now_add=False,null = True, blank= True)
     present = models.BooleanField()
