@@ -1,0 +1,48 @@
+
+{% load static %}
+<section class="featured section-padding" id="section_3">
+    <div class="container">
+        <div class="col-lg-10 col-12 mx-auto">
+            <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5">
+                <img src="{% static 'home/images/resume.jpg' %}" class="avatar-image img-fluid" alt="">
+                <h2 class="text-white ms-4 mb-0">Resume</h2>
+            </div>
+      <div class="row">
+        <div class="col-lg-6" data-aos="fade-up">
+          <h3 class="profile-small-title">Education</h3>
+          
+          {% for edu  in education reversed %}
+          <div class="profile-title">
+            <h4>{{edu.major}}</h4>
+            <h5>{{edu.start_date|date:"Y"}} - 
+            {% if edu.present %}
+                Present
+            {% else %}
+                {{edu.end_date|date:"Y"}}</h5>
+                <p><em>Degree: {{edu.degree}}</em></p>
+            {% endif %}   
+            <p><em>{{edu.school}}</em></p>
+            <p>{{edu.details}}</p>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="profile-small-title">Experience</h3>
+          
+          {% for exp in experience %}
+          <div class="profile-title">
+            <h4>{{exp.name}}</h4>
+            <h5>{{exp.start_date|date:"Y"}} - 
+                {% if edu.present %}
+                    Present
+                {% else %}
+                    {{exp.end_date|date:"Y"}}{% endif %}</h5>
+                    <p>{{exp.details|linebreaks}}</p>
+          {% endfor %}
+
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Resume Section -->
+    {% comment %} {% endfor %} {% endcomment %}

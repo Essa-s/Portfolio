@@ -1,15 +1,22 @@
 from django.shortcuts import render
 from django.views.generic import ListView, UpdateView
-from .models import Profile, Services, Project
+from .models import Profile, Services, Project, Education, Experience, Skills, Courses
 from django.shortcuts import get_object_or_404
 def Home(request):
     profile = Profile.objects.all().first()
     services = Services.objects.all()
-
-
+    education = Education.objects.all()
+    skills = Skills.objects.all()
+    courses = Courses.objects.all()
+    experience = Experience.objects.all()
     context = {
             'profile': profile,
             'services': services,
+            'education': education,
+            'skills': skills,
+            'courses': courses,
+            'experience': experience,
+
 
     }
     
